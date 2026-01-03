@@ -1,0 +1,97 @@
+h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.loading {
+    font-style: italic;
+    color: #666;
+}
+
+
+
+
+.dashboard-grid {
+    display: grid;
+    /* Reverting to 3 columns to fit 6 items perfectly (2 rows) */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+@media (max-width: 1200px) {
+    .dashboard-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+}
+
+.card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    min-height: 260px;
+    /* Slightly taller to fit combined KPI pleasantly */
+}
+
+/* Updated KPI Card Styles */
+.kpi-card {
+    justify-content: center;
+}
+
+.kpi-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 100%;
+}
+
+.kpi-item {
+    text-align: center;
+    flex: 1;
+}
+
+.kpi-item .label {
+    font-size: 0.9rem;
+    color: #666;
+    margin: 0 0 5px 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.kpi-item .value {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #1976d2;
+    margin: 0;
+}
+
+.kpi-divider {
+    width: 1px;
+    height: 60%;
+    background: #eee;
+    margin: 0 10px;
+}
+
+.card h3 {
+    margin: 0 0 15px 0;
+    font-size: 1rem;
+    color: #444;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    text-align: center;
+    /* Center all titles */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.chart-container {
+    flex: 1;
+    position: relative;
+    width: 100%;
+    min-height: 180px;
+    max-height: 200px;
+    /* Adjusted max-height */
+}

@@ -1,0 +1,27 @@
+.main-navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: #1976d2;
+    color: white;
+}
+
+.main-navbar .logo {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.main-navbar nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 15px;
+}
+
+.main-navbar nav a.active {
+    text-decoration: underline;
+}
+
+.main-navbar nav a:hover {
+    opacity: 0.8;
+}

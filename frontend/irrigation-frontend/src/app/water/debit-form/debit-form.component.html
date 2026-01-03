@@ -1,0 +1,27 @@
+<h2>{{ isEdit ? 'Modifier une mesure de débit' : 'Ajouter une mesure de débit' }}</h2>
+
+<form (ngSubmit)="onSubmit()" #debitForm="ngForm">
+    <div>
+        <label>ID pompe</label>
+        <input type="number" name="pompeId" [(ngModel)]="debit.pompeId" required>
+    </div>
+
+    <div>
+        <label>Débit</label>
+        <input type="number" name="debit" [(ngModel)]="debit.debit" required>
+    </div>
+
+    <div>
+        <label>Unité</label>
+        <input type="text" name="unite" [(ngModel)]="debit.unite">
+    </div>
+
+    <div>
+        <label>Date mesure</label>
+        <input type="datetime-local" name="dateMesure" [(ngModel)]="debit.dateMesure">
+    </div>
+
+    <button type="submit" [disabled]="debitForm.invalid">
+        Enregistrer
+    </button>
+</form>

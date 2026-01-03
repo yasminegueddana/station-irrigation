@@ -1,0 +1,27 @@
+<h2>{{ isEdit ? 'Modifier un réservoir' : 'Ajouter un réservoir' }}</h2>
+
+<form (ngSubmit)="onSubmit()" #reservoirForm="ngForm">
+    <div>
+        <label>Nom</label>
+        <input type="text" name="nom" [(ngModel)]="reservoir.nom" required>
+    </div>
+
+    <div>
+        <label>Capacité totale (m³)</label>
+        <input type="number" name="capaciteTotale" [(ngModel)]="reservoir.capaciteTotale" required>
+    </div>
+
+    <div>
+        <label>Volume actuel (m³)</label>
+        <input type="number" name="volumeActuel" [(ngModel)]="reservoir.volumeActuel" required>
+    </div>
+
+    <div>
+        <label>Localisation</label>
+        <input type="text" name="localisation" [(ngModel)]="reservoir.localisation">
+    </div>
+
+    <button type="submit" [disabled]="reservoirForm.invalid">
+        Enregistrer
+    </button>
+</form>

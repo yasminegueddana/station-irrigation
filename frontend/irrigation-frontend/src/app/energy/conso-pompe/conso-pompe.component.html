@@ -1,0 +1,28 @@
+<h2>Consommations de la pompe {{ pompeId }}</h2>
+
+<div *ngIf="alerteMessage" class="alerte" [ngClass]="{ 'alerte-danger': alerteSurconso, 'alerte-ok': !alerteSurconso }">
+    {{ alerteMessage }}
+</div>
+
+<table *ngIf="consommations.length > 0; else noData">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Énergie utilisée (kWh)</th>
+            <th>Durée (h)</th>
+            <th>Date mesure</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let c of consommations">
+            <td>{{ c.id }}</td>
+            <td>{{ c.energieUtilisee }}</td>
+            <td>{{ c.duree }}</td>
+            <td>{{ c.dateMesure }}</td>
+        </tr>
+    </tbody>
+</table>
+
+<ng-template #noData>
+    <p>Aucune consommation enregistrée pour cette pompe.</p>
+</ng-template>

@@ -1,0 +1,56 @@
+<h2>Alertes eau</h2>
+
+<div class="toolbar">
+    <input type="search" placeholder="Rechercher (pompe, message, sévérité)..." [(ngModel)]="searchTerm" />
+
+    <select [(ngModel)]="filtreStatut">
+        <option value="TOUS">Tous les statuts</option>
+        <option value="NON_TRAITEE">Non traitée</option>
+        <option value="EN_COURS">En cours</option>
+        <option value="RESOLUE">Résolue</option>
+    </select>
+</div>
+
+<table *ngIf="filteredAlertes.length; else noData">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>ID Pompe</th>
+            <th>Énergie (kWh)</th>
+            <th>Date alerte</th>
+            <th>Message</th>
+            <th>Sévérité</th>
+            <th>Statut</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let a of filteredAlertes">
+            <td>{{ a.id }}</td>
+            <td>{{ a.pompeId }}</td>
+            <td>{{ a.totalEnergie }}</td>
+            <td>{{ a.dateAlerte | date:'yyyy-MM-dd HH:mm' }}</td>
+            <td>{{ a.message }}</td>
+            <td>{{ a.severite }}</td>
+            <td>
+                <span [ngClass]="getBadgeClass(a)">{{ a.statut }}</span>
+            </td>
+            <td>
+                <button class="action-link" (click)="onChangeStatut(a)" [disabled]="a.statut === 'RESOLUE'">
+                    <span *ngIf="a.statut !== 'RESOLUE'">
+                        Marquer {{ nextStatut(a.statut) | lowercase }}
+                    </span>
+                    <span *ngIf="a.statut === 'RESOLUE'">
+                        Résolue
+                    </span>
+                </button>
+            </td>
+
+        </tr>
+    </tbody>
+</table>
+
+<ng-template #noData>
+    <p *ngIf="!loading">Aucune alerte eau enregistrée.</p>
+    <p *ngIf="loading">Chargement...</p>
+</ng-template>

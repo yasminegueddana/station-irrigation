@@ -1,0 +1,26 @@
+.alerte {
+    margin-bottom: 15px;
+    padding: 8px 12px;
+    border-radius: 4px;
+}
+
+.alerte-danger {
+    background-color: #ffebee;
+    color: #c62828;
+}
+
+.alerte-ok {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    border: 1px solid #ccc;
+    padding: 6px 8px;
+}

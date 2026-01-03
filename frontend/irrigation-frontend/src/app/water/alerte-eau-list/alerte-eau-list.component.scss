@@ -1,0 +1,108 @@
+h2 {
+    margin-bottom: 10px;
+}
+
+.toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.toolbar input {
+    width: 300px;
+    padding: 6px 10px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    outline: none;
+}
+
+.toolbar select {
+    padding: 6px 10px;
+}
+
+.toolbar input:focus {
+    border-color: #1976d2;
+    box-shadow: 0 0 3px rgba(25, 118, 210, 0.6);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th,
+td {
+    border: 1px solid #ccc;
+    padding: 6px 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f5f5f5;
+}
+
+button {
+    padding: 4px 8px;
+    cursor: pointer;
+}
+
+/* badges de statut */
+.badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+    color: #fff;
+}
+
+.badge-danger {
+    background-color: #d32f2f;
+}
+
+.badge-warning {
+    background-color: #f9a825;
+}
+
+.badge-success {
+    background-color: #388e3c;
+}
+
+/* boutons d'action type lien */
+.action-link {
+    padding: 0;
+    border: none;
+    background: none;
+    color: #1976d2;
+    cursor: pointer;
+    font-size: 13px;
+    text-decoration: underline;
+}
+
+.action-link:disabled {
+    color: #999;
+    text-decoration: none;
+    cursor: default;
+}
+
+/* badges de statut plus sobres */
+.badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 11px;
+    color: #fff;
+}
+
+.badge-danger {
+    background-color: #e53935;
+}
+
+.badge-warning {
+    background-color: #fb8c00;
+}
+
+.badge-success {
+    background-color: #43a047;
+}

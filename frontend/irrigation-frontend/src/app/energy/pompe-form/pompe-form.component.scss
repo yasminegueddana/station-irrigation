@@ -1,0 +1,38 @@
+h2 {
+    margin-bottom: 15px;
+}
+
+form {
+    max-width: 400px;
+}
+
+div {
+    margin-bottom: 10px;
+}
+
+label {
+    display: block;
+    margin-bottom: 4px;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 6px 8px;
+    box-sizing: border-box;
+}
+
+button[type="submit"]:disabled {
+    background-color: #aaa;
+    cursor: not-allowed;
+}
+
+button[type="submit"] {
+    margin-top: 10px;
+    padding: 6px 12px;
+    background-color: #1976d2;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}

@@ -1,0 +1,35 @@
+<h2>Liste des réservoirs</h2>
+
+<div class="toolbar">
+    <input type="search" placeholder="Rechercher un réservoir (nom, localisation)..." [(ngModel)]="searchTerm" />
+
+    <button class="btn-primary" routerLink="/reservoirs/nouveau">
+        Ajouter un réservoir
+    </button>
+</div>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nom</th>
+            <th>Capacité totale (m³)</th>
+            <th>Volume actuel (m³)</th>
+            <th>Localisation</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let r of filteredReservoirs">
+            <td>{{ r.id }}</td>
+            <td>{{ r.nom }}</td>
+            <td>{{ r.capaciteTotale }}</td>
+            <td>{{ r.volumeActuel }}</td>
+            <td>{{ r.localisation }}</td>
+            <td>
+                <button [routerLink]="['/reservoirs', r.id]">Modifier</button>
+                <button (click)="onDelete(r.id)">Supprimer</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

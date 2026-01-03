@@ -1,0 +1,21 @@
+<header class="main-navbar">
+  <div class="logo">
+    Irrigation
+  </div>
+  <nav>
+    <a routerLink="/dashboard" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Dashboard</a>
+    <a routerLink="/pompes" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+      Pompes
+    </a>
+
+    <a routerLink="/reservoirs" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+      Réservoirs
+    </a>
+    <a routerLink="/debits" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Débits</a>
+    <a routerLink="/alertes-eau" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Alertes eau</a>
+  </nav>
+</header>
+
+<div class="app-container">
+  <router-outlet></router-outlet>
+</div>

@@ -1,0 +1,51 @@
+<h2>Liste des pompes</h2>
+
+<div class="toolbar">
+    <input type="search" placeholder="Rechercher une pompe (référence ou statut)..." [(ngModel)]="searchTerm" />
+
+    <button class="btn-primary" routerLink="/pompes/nouveau">
+        Ajouter une pompe
+    </button>
+</div>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Référence</th>
+            <th>Puissance</th>
+            <th>Statut</th>
+            <th>Date mise en service</th>
+            <th>Disponibilité</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let p of filteredPompes">
+            <td>{{ p.id }}</td>
+            <td>{{ p.reference }}</td>
+            <td>{{ p.puissance }}</td>
+            <td>{{ p.statut }}</td>
+            <td>{{ p.dateMiseEnService }}</td>
+            <td>
+                <span class="badge" [ngClass]="{
+          'badge-dispo': dispos[p.id!] === 'DISPONIBLE',
+          'badge-indispo': dispos[p.id!] === 'NON_DISPONIBLE'
+        }">
+                    {{ dispos[p.id!] || '...' }}
+                </span>
+            </td>
+            <td>
+                <button (click)="onEdit(p.id)">Modifier</button>
+                <button (click)="onDelete(p.id)">Supprimer</button>
+                <button [routerLink]="['/pompes', p.id, 'consommations']">
+                    Conso
+                </button>
+                <button [routerLink]="['/pompes', p.id, 'debits']">Débits</button>
+
+            </td>
+
+        </tr>
+    </tbody>
+
+</table>

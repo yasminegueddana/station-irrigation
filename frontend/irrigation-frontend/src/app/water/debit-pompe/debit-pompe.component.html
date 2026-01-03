@@ -1,0 +1,37 @@
+<h2>Débits de la pompe {{ pompeId }}</h2>
+
+<div class="toolbar">
+    <input type="search" placeholder="Rechercher (débit, unité)..." [(ngModel)]="searchTerm">
+
+    <button class="btn-primary" [routerLink]="['/debits/nouveau']" [queryParams]="{ pompeId: pompeId }">
+        Ajouter une mesure
+    </button>
+</div>
+
+<table *ngIf="debits.length; else noData">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Débit</th>
+            <th>Unité</th>
+            <th>Date mesure</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let d of filteredDebits">
+            <td>{{ d.id }}</td>
+            <td>{{ d.debit }}</td>
+            <td>{{ d.unite }}</td>
+            <td>{{ d.dateMesure | date:'yyyy-MM-dd HH:mm' }}</td>
+            <td>
+                <button [routerLink]="['/debits', d.id]">Modifier</button>
+                <button (click)="onDelete(d.id)">Supprimer</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<ng-template #noData>
+    <p>Aucune mesure de débit pour cette pompe.</p>
+</ng-template>

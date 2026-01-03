@@ -1,0 +1,68 @@
+<h2>Dashboard</h2>
+
+<div *ngIf="loading" class="loading">Chargement des données...</div>
+
+<div class="dashboard-grid" *ngIf="!loading">
+
+    <!-- Carte KPIs Groupés (Résumé) -->
+    <div class="card kpi-card">
+        <h3>Pompe et Reservoir</h3>
+        <div class="kpi-row">
+            <div class="kpi-item">
+                <p class="label">Réservoirs</p>
+                <p class="value">{{ nbReservoirs }}</p>
+            </div>
+            <div class="kpi-divider"></div>
+            <div class="kpi-item">
+                <p class="label">Pompes</p>
+                <p class="value">{{ nbPompes }}</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Graphique Pompes (Donut) -->
+    <div class="card chart-card">
+        <h3>État des Pompes</h3>
+        <div class="chart-container">
+            <canvas baseChart [data]="pumpChartData" [type]="pumpChartType" [options]="pumpChartOptions">
+            </canvas>
+        </div>
+    </div>
+
+    <!-- Graphique Alertes (Barres Horizontales) -->
+    <div class="card chart-card">
+        <h3>Statut des Alertes</h3>
+        <div class="chart-container">
+            <canvas baseChart [data]="alertChartData" [type]="alertChartType" [options]="alertChartOptions">
+            </canvas>
+        </div>
+    </div>
+
+    <!-- Graphique Niveaux Réservoirs -->
+    <div class="card chart-card">
+        <h3>Niveaux des Réservoirs</h3>
+        <div class="chart-container">
+            <canvas baseChart [data]="reservoirChartData" [type]="reservoirChartType" [options]="reservoirChartOptions">
+            </canvas>
+        </div>
+    </div>
+
+    <!-- Graphique Consommation Énergétique -->
+    <div class="card chart-card">
+        <h3>Consommation Énergétique</h3>
+        <div class="chart-container">
+            <canvas baseChart [data]="energyChartData" [type]="energyChartType" [options]="energyChartOptions">
+            </canvas>
+        </div>
+    </div>
+
+    <!-- Graphique Derniers Débits Mesurés -->
+    <div class="card chart-card">
+        <h3>Derniers Débits Mesurés</h3>
+        <div class="chart-container">
+            <canvas baseChart [data]="debitChartData" [type]="debitChartType" [options]="debitChartOptions">
+            </canvas>
+        </div>
+    </div>
+
+</div>

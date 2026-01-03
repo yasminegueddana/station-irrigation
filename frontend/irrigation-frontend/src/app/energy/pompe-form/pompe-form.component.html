@@ -1,0 +1,30 @@
+<h2>{{ isEdit ? 'Modifier une pompe' : 'Ajouter une pompe' }}</h2>
+<form (ngSubmit)="onSubmit()" #pompeForm="ngForm">
+
+    <div>
+        <label>Référence</label>
+        <input type="text" name="reference" [(ngModel)]="pompe.reference" required>
+    </div>
+
+    <div>
+        <label>Puissance (kW)</label>
+        <input type="number" name="puissance" [(ngModel)]="pompe.puissance" required>
+    </div>
+
+    <div>
+        <label>Statut</label>
+        <select name="statut" [(ngModel)]="pompe.statut">
+            <option value="ACTIVE">ACTIVE</option>
+            <option value="EN_PANNE">EN_PANNE</option>
+        </select>
+    </div>
+
+    <div>
+        <label>Date mise en service</label>
+        <input type="date" name="dateMiseEnService" [(ngModel)]="pompe.dateMiseEnService" required>
+    </div>
+
+    <button type="submit" [disabled]="pompeForm.invalid">
+        Enregistrer
+    </button>
+</form>
